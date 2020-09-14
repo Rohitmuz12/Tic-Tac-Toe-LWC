@@ -1,0 +1,101 @@
+.header {
+    background: rgb(250, 116, 116);
+    color: white;
+    font-size: 1rem;
+}
+
+.game-container{
+    padding:5%;
+    background-color:
+    rgb(158, 142, 121) ;
+}
+
+.blank{
+    background-color: transparent;
+    color: transparent;
+}
+
+.white{
+    background-color: white;
+    color: black;
+}
+
+.black{
+    background-color: black;
+    color: white;
+}
+
+.gameBlock{
+    height : 350px;
+    width : 350px;
+    margin-left:30%;
+}
+
+.slds-wrap div{
+    height: 100px;
+    /* margin-left: 1%; */
+    /* margin-top: 2%; */
+    /* margin-bottom: 2%; */
+    width: 100px !important;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.symbol{
+    margin-left: 16%;
+    font-size: 6em;
+    display: inline-block;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(158,142,121,0.9);
+    z-index: 2;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+.overlayToStop{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(158,142,121,0.4);
+    z-index: 2;
+}
+
+.custom-loading-text {
+    color: #a8eca8;
+    transform: rotate(-90deg);
+    font-size: large;
+    position: absolute;
+    top: -0.5rem;
+    left: -1rem;
+    white-space: pre;
+    text-align: center;
+}
+
+.custom-loading-text-1{
+    color: #d23a48;
+    font-size: xx-large;
+    padding: 0px 135px;
+    white-space: pre;
+    background: #60ea8b;
+    border: 1px solid #2b8c45;
+    text-align: center;
+}

@@ -1,0 +1,42 @@
+<template>
+    <div class="slds-m-top_small slds-m-bottom_medium">
+    <div if:true={isNoActiveGame}>
+        <lightning-button variant="brand" label="Create game" onclick={createGame} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="Join game" onclick={joinAGame} class="slds-m-left_x-small"></lightning-button>
+    </div>
+    <div if:true={isCreateGame}>
+            <lightning-radio-group name="channelGroup"
+                                  label="Choose game type"
+                                  options={channelOptions}
+                                  value={value}
+                                  onchange={handleChannelOnchange}
+                                  type="radio"
+                                  class="slds-var-m-bottom_medium">
+            </lightning-radio-group>
+            
+            <lightning-input label="Your name" onkeyup={handlePlayerName} onchange={handlePlayerName} value={playerName} class="slds-var-m-bottom_medium"></lightning-input>
+            <lightning-input label="Opponent name" onkeyup={handleOpponentName} onchange={handleOpponentName} value={opponentName} class="slds-var-m-bottom_medium" if:true={offLine}></lightning-input>
+        
+            <lightning-button variant="brand" label="Start Game" onclick={startGame} class="slds-var-m-top_medium"></lightning-button>
+    </div>
+    <div if:true={isJoinAGame}>
+        <lightning-input label="Input game Id" onkeyup={handleKeyUp} value={gameId} class="slds-var-m-bottom_medium"></lightning-input>
+        <lightning-input label="Your name" onkeyup={handlePlayerName} onchange={handlePlayerName} value={playerName} class="slds-var-m-bottom_medium"></lightning-input>
+        
+        <lightning-button label="Join" variant="brand" onclick={joinGame} class="slds-var-m-top_medium"></lightning-button>
+    </div>
+    <div if:true={isWaitingForJoining}>
+            <div class="slds-spinner_container ">
+                <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                    <div class="custom-loading-text">
+                        {waitingMsg}
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</template>

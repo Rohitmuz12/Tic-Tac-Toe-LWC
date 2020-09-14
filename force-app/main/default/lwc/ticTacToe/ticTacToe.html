@@ -1,0 +1,66 @@
+<template>
+    <div class="header slds-var-p-around_medium">
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-3">
+                <span>You : {senderPlayerName}</span>
+            </div>
+            <div
+                class="slds-col slds-size_1-of-3 slds-text-align_center"
+            >
+            <lightning-progress-bar value={progress}></lightning-progress-bar>
+            <!-- <lightning-progress-ring value={progress} variant="active-step"> </lightning-progress-ring> -->
+
+                <!-- Tic Tac Toe -->
+            </div>
+            <div
+                class="slds-col slds-size_1-of-3 slds-text-align_right"
+            >
+                <span>Opponent : {receiverPlayerName}</span>
+            </div>
+        </div>
+    </div>
+    <div class="game-container">
+        <div class="gameBlock">
+            <div class="slds-grid slds-wrap">
+            <template for:each={gameBlock} for:item="block">
+                <div class="slds-col slds-size_1-of-3" key={block.cordinate}>
+                <div class={block.class} 
+                data-target-id={block.cordinate}
+                key={block.cordinate}
+                onclick={handleBlock}>
+                    <p data-target-id={block.cordinate} class="symbol slds-text-align_center">{block.label}</p>
+                </div>
+            </div>
+            </template>
+            </div>
+        </div>
+        <div class="overlayToStop" if:true={showOverLay}>
+            <div class="overlay-content">
+                <div class="slds-spinner_container ">
+                    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                        <div class="custom-loading-text">
+                            Waiting for opponent
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlayToStop" if:true={winningOrLose}>
+            <div class="overlay-content">
+                <div class="custom-loading-text-1">
+                    <p>{winningOrLoseMsg}</p>
+                </div>
+            </div>
+        </div>
+    <template if:false={activeGame}>
+        <div class="overlay">
+            <div class="overlay-content">
+                <c-tic-tac-toe-panel onjoingame={setReceiverId} onstartgame={startGame}></c-tic-tac-toe-panel>
+            </div>
+        </div>
+    </template>
+    </div>
+</template>

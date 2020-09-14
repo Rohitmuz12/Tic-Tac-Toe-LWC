@@ -1,0 +1,14 @@
+.textInput{
+    -webkit-text-fill-color: white;
+}
+
+.custom-loading-text {
+    color: #a8eca8;
+    transform: rotate(-90deg);
+    font-size: large;
+    position: absolute;
+    top: -1.5rem;
+    left: -2rem;
+    white-space: pre;
+    text-align: center;
+}
